@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:trakt_client/src/client/base.dart';
 import 'package:trakt_client/src/client/env.dart';
@@ -12,15 +13,15 @@ class Client {
   String _getUrl(String path) => '${Env().config.traktApiUrl}/$path';
 
   BaseOptions get _dioOptions {
-    var options = BaseOptions(
+    Map<String, dynamic> headers = {
+      'trakt-api-key': Env().config.traktClient,
+      'trakt-api-version': Env().config.traktApiVersion,
+    };
+    return BaseOptions(
       contentType: 'application/json',
-      headers: {
-        'content-type': 'application/json',
-        'trakt-api-key': Env().config.traktClient,
-        'trakt-api-version': Env().config.traktApiVersion,
-      },
+      
+      headers: headers,
     );
-    return options;
   }
 
   void launchURL(String url) async {
@@ -29,13 +30,13 @@ class Client {
     }
   }
 
-  Future<TraktBase<T, K>> post<T, K>({
-    String path,
-    Map<String, dynamic> parameters,
-    Map<String, dynamic> content,
-    T Function(K data) builder,
+  Future<TraktBase<T>> post<T, K>({
+    @required String path,
+    @required Map<String, dynamic> parameters,
+    @required Map<String, dynamic> content,
+    @required T Function(K data) builder,
   }) {
-    var completer = Completer<TraktBase<T, K>>();
+    var completer = Completer<TraktBase<T>>();
     var dio = Dio(_dioOptions);
     var url = _getUrl(path);
 
@@ -43,8 +44,7 @@ class Client {
       completer.complete(
         TraktBase.fromResponse(
           header: response.headers.map,
-          response: response.data as K,
-          builder: builder,
+          data: builder(response.data as K),
         ),
       );
     }).catchError((error) {

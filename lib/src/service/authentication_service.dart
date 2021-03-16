@@ -1,8 +1,6 @@
-import 'package:trakt_client/src/client/client.dart';
-import 'package:trakt_client/src/client/env.dart';
+part of 'package:trakt_client/src/client/service_core.dart';
 
-class AuthenticationService {
-  // AuthenticationService();
+class AuthenticationService extends TraktServiceCore {
   void authorize() {
     var uri = Uri.https(
       Env().config.traktUrl.replaceFirst('https://', ''),
@@ -14,5 +12,35 @@ class AuthenticationService {
       },
     );
     Client().launchURL(uri.toString());
+  }
+
+  Future<TraktBase<TraktToken>> getToken(TraktTokenForm data,
+      {bool clean = true}) {
+    return _post_MS_MR(
+      path: 'oauth/token',
+      queryParameters: null,
+      content: data.toJson(clean: clean),
+      builder: (response) => TraktToken.fromJson(response),
+    );
+  }
+
+  Future<TraktBase<TraktToken>> refreshToken(TraktTokenForm data,
+      {bool clean = true}) {
+    return _post_MS_MR(
+      path: 'oauth/token',
+      queryParameters: null,
+      content: data.toJson(clean: clean),
+      builder: (response) => TraktToken.fromJson(response),
+    );
+  }
+
+  Future<TraktBase<TraktToken>> revokeToken(TraktTokenForm data,
+      {bool clean = true}) {
+    return _post_MS_MR(
+      path: 'oauth/revoke',
+      queryParameters: null,
+      content: data.toJson(clean: clean),
+      builder: (response) => TraktToken.fromJson(response),
+    );
   }
 }

@@ -1,6 +1,7 @@
-import 'package:trakt_client/src/service/authentication_service.dart';
+
+
+import 'package:trakt_client/src/client/service_core.dart';
 
 class TraktService {
-  static AuthenticationService get authentication =>
-      AuthenticationService();
+  static AuthenticationService get oAuth => AuthenticationService();
 }
