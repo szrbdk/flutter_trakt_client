@@ -1,4 +1,9 @@
 library trakt_client;
 
-export 'package:trakt_client/src/trakt.dart';
+// CORE
 export 'package:trakt_client/src/trakt_service.dart';
+export 'package:trakt_client/src/trakt.dart';
+
+// MODELS
+export 'package:trakt_client/src/model/trakt_token_form.dart';
+export 'package:trakt_client/src/model/trakt_token.dart';

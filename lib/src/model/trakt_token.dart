@@ -1,4 +1,4 @@
-import 'dart:convert';
+import 'package:trakt_client/src/helpers/trakt_helper.dart';
 
 class TraktToken {
   TraktToken({
@@ -43,17 +43,13 @@ class TraktToken {
         createdAt: json['created_at'],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson({bool clean = false}) =>
+      TraktHelper().cleanMap(clean: clean, map: {
         'access_token': accessToken,
         'token_type': tokenType,
         'expires_in': expiresIn,
         'refresh_token': refreshToken,
         'scope': scope,
         'created_at': createdAt,
-      };
-
-  factory TraktToken.fromRawJson(String str) =>
-      TraktToken.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
+      });
 }
