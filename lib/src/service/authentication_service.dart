@@ -16,7 +16,7 @@ class AuthenticationService extends TraktServiceCore {
 
   Future<TraktBase<TraktToken>> getToken(TraktTokenForm data,
       {bool clean = true}) {
-    return _post_MS_MR(
+    return _post_MS_MR<TraktToken>(
       path: 'oauth/token',
       queryParameters: null,
       content: data.toJson(clean: clean),
@@ -26,7 +26,7 @@ class AuthenticationService extends TraktServiceCore {
 
   Future<TraktBase<TraktToken>> refreshToken(TraktTokenForm data,
       {bool clean = true}) {
-    return _post_MS_MR(
+    return _post_MS_MR<TraktToken>(
       path: 'oauth/token',
       queryParameters: null,
       content: data.toJson(clean: clean),
@@ -36,7 +36,7 @@ class AuthenticationService extends TraktServiceCore {
 
   Future<TraktBase<TraktToken>> revokeToken(TraktTokenForm data,
       {bool clean = true}) {
-    return _post_MS_MR(
+    return _post_MS_MR<TraktToken>(
       path: 'oauth/revoke',
       queryParameters: null,
       content: data.toJson(clean: clean),

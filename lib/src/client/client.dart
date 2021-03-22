@@ -13,7 +13,7 @@ class Client {
   String _getUrl(String path) => '${Env().config.traktApiUrl}/$path';
 
   BaseOptions get _dioOptions {
-    Map<String, dynamic> headers = {
+    var headers = {
       'trakt-api-key': Env().config.traktClient,
       'trakt-api-version': Env().config.traktApiVersion,
     };
@@ -41,6 +41,29 @@ class Client {
     var url = _getUrl(path);
 
     dio.post(url, queryParameters: parameters, data: content).then((response) {
+      completer.complete(
+        TraktBase.fromResponse(
+          header: response.headers.map,
+          data: builder(response.data as K),
+        ),
+      );
+    }).catchError((error) {
+      completer.completeError(error);
+    });
+
+    return completer.future;
+  }
+
+    Future<TraktBase<T>> get<T, K>({
+    @required String path,
+    @required Map<String, dynamic> parameters,
+    @required T Function(K data) builder,
+  }) {
+    var completer = Completer<TraktBase<T>>();
+    var dio = Dio(_dioOptions);
+    var url = _getUrl(path);
+
+    dio.get(url, queryParameters: parameters).then((response) {
       completer.complete(
         TraktBase.fromResponse(
           header: response.headers.map,

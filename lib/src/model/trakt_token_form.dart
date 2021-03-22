@@ -28,6 +28,7 @@ class TraktTokenForm {
     String redirectUri,
     String grantType,
     String refreshToken,
+    String token,
   }) =>
       TraktTokenForm(
         code: code ?? this.code,
@@ -40,23 +41,23 @@ class TraktTokenForm {
       );
 
   factory TraktTokenForm.fromJson(Map<String, dynamic> json) => TraktTokenForm(
-        code: json["code"],
-        clientId: json["client_id"],
-        clientSecret: json["client_secret"],
-        redirectUri: json["redirect_uri"],
-        grantType: EnumHelper().traktGrantTypeFromString(json["grant_type"]),
-        refreshToken: json["refresh_token"],
-        token: json["token"],
+        code: json['code'],
+        clientId: json['client_id'],
+        clientSecret: json['client_secret'],
+        redirectUri: json['redirect_uri'],
+        grantType: EnumHelper().traktGrantTypeFromString(json['grant_type']),
+        refreshToken: json['refresh_token'],
+        token: json['token'],
       );
 
   Map<String, dynamic> toJson({bool clean = false}) =>
       TraktHelper().cleanMap(clean: clean, map: {
-        "code": code,
-        "client_id": clientId,
-        "client_secret": clientSecret,
-        "redirect_uri": redirectUri,
-        "grant_type": EnumHelper().traktGrantTypeToString(grantType),
-        "refresh_token": refreshToken,
-        "token": token,
+        'code': code,
+        'client_id': clientId,
+        'client_secret': clientSecret,
+        'redirect_uri': redirectUri,
+        'grant_type': EnumHelper().traktGrantTypeToString(grantType),
+        'refresh_token': refreshToken,
+        'token': token,
       });
 }
