@@ -1,0 +1,4 @@
+enum TraktCertificationType {
+  movies,
+  shows,
+}

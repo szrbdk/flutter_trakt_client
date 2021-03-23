@@ -1,3 +1,4 @@
+import 'package:trakt_client/src/enum/certification_type.dart';
 import 'package:trakt_client/src/enum/grant_type.dart';
 
 class EnumHelper {
@@ -13,6 +14,10 @@ class EnumHelper {
   }
 
   String traktGrantTypeToString(TraktGrantType value) {
+    return value.toString().split('.').last;
+  }
+
+  String traktCertificationTypeToString(TraktCertificationType value) {
     return value.toString().split('.').last;
   }
 }
