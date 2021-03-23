@@ -7,9 +7,11 @@ export 'package:trakt_client/src/trakt.dart';
 // MODELS
 export 'package:trakt_client/src/model/trakt_airs.dart';
 export 'package:trakt_client/src/model/trakt_calendar.dart';
+export 'package:trakt_client/src/model/trakt_checkin.dart';
 export 'package:trakt_client/src/model/trakt_episode.dart';
 export 'package:trakt_client/src/model/trakt_ids.dart';
 export 'package:trakt_client/src/model/trakt_movie.dart';
+export 'package:trakt_client/src/model/trakt_sharing.dart';
 export 'package:trakt_client/src/model/trakt_show.dart';
 export 'package:trakt_client/src/model/trakt_token_form.dart';
 export 'package:trakt_client/src/model/trakt_token.dart';
