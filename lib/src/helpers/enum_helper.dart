@@ -2,6 +2,8 @@ import 'package:trakt_client/src/enum/certification_type.dart';
 import 'package:trakt_client/src/enum/grant_type.dart';
 
 class EnumHelper {
+  String enumToString(String enumString) => enumString.split('.').last;
+
   TraktGrantType traktGrantTypeFromString(String value) {
     var _keys = List<String>.from(
         TraktGrantType.values.map((e) => e.toString().split('.').last));

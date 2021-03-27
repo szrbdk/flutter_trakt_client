@@ -95,4 +95,27 @@ class Client {
     });
     return completer.future;
   }
+
+  Future<TraktBase<T>> put<T, K>({
+    @required String path,
+    @required Map<String, dynamic> parameters,
+    @required Map<String, dynamic> content,
+    @required T Function(K data) builder,
+  }) {
+    var completer = Completer<TraktBase<T>>();
+    var dio = Dio(_dioOptions);
+    var url = _getUrl(path);
+
+    dio.post(url, queryParameters: parameters, data: content).then((response) {
+      completer.complete(
+        TraktBase.fromResponse(
+          header: response.headers.map,
+          data: builder(response.data as K),
+        ),
+      );
+    }).catchError((error) {
+      completer.completeError(error);
+    });
+    return completer.future;
+  }
 }

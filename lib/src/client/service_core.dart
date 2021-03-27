@@ -5,9 +5,14 @@ import 'package:trakt_client/src/client/base.dart';
 import 'package:trakt_client/src/client/client.dart';
 import 'package:trakt_client/src/client/env.dart';
 import 'package:trakt_client/src/enum/certification_type.dart';
+import 'package:trakt_client/src/enum/comment_type.dart';
+import 'package:trakt_client/src/enum/type.dart';
 import 'package:trakt_client/src/helpers/enum_helper.dart';
 import 'package:trakt_client/src/model/trakt_certification.dart';
 import 'package:trakt_client/src/model/trakt_checkin.dart';
+import 'package:trakt_client/src/model/trakt_comment.dart';
+import 'package:trakt_client/src/model/trakt_like.dart';
+import 'package:trakt_client/src/model/trakt_media_item.dart';
 
 import 'package:trakt_client/src/model/trakt_token.dart';
 import 'package:trakt_client/src/model/trakt_token_form.dart';
@@ -17,6 +22,7 @@ part 'package:trakt_client/src/service/authentication_service.dart';
 part 'package:trakt_client/src/service/calendar_service.dart';
 part 'package:trakt_client/src/service/certification_service.dart';
 part 'package:trakt_client/src/service/checkin_service.dart';
+part 'package:trakt_client/src/service/comment_service.dart';
 
 /// `MSMR` -> Map Sends, Map Returns
 ///
@@ -73,6 +79,20 @@ abstract class TraktServiceCore {
     return Client().delete<T, K>(
       path: path,
       parameters: queryParameters,
+      builder: builder,
+    );
+  }
+
+  Future<TraktBase<T>> _put_MS_MR<T>({
+    @required String path,
+    @required Map<String, dynamic> queryParameters,
+    @required Map<String, dynamic> content,
+    @required T Function(Map<String, dynamic> response) builder,
+  }) {
+    return Client().post<T, Map<String, dynamic>>(
+      path: path,
+      parameters: queryParameters,
+      content: content,
       builder: builder,
     );
   }
