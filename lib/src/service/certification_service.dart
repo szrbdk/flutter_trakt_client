@@ -5,7 +5,6 @@ class CertificationService extends TraktServiceCore {
     var pathItems = ['certifications', type.string];
     return _get_MR<TraktCertification>(
       path: pathItems.toPath(),
-      queryParameters: null,
       builder: (response) => TraktCertification.fromJson(response),
     );
   }

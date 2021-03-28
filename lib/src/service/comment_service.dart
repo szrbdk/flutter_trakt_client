@@ -6,7 +6,6 @@ class CommentService extends TraktServiceCore {
     var pathItems = ['comments'];
     return _post_MS_MR<TraktComment>(
       path: pathItems.toPath(),
-      queryParameters: null,
       content: data.toJson(clean: clean),
       builder: (response) => TraktComment.fromJson(response),
     );
@@ -16,7 +15,6 @@ class CommentService extends TraktServiceCore {
     var pathItems = ['comments', '$id'];
     return _get_MR<TraktComment>(
       path: pathItems.toPath(),
-      queryParameters: null,
       builder: (response) => TraktComment.fromJson(response),
     );
   }
@@ -27,7 +25,6 @@ class CommentService extends TraktServiceCore {
     var pathItems = ['comments', '$id'];
     return _put_MS_MR<TraktComment>(
       path: pathItems.toPath(),
-      queryParameters: null,
       content: data.toJson(clean: clean),
       builder: (response) => TraktComment.fromJson(response),
     );
@@ -37,7 +34,6 @@ class CommentService extends TraktServiceCore {
     var pathItems = ['comments', '$id'];
     return _delete<bool, bool>(
       path: pathItems.toPath(),
-      queryParameters: null,
       builder: (response) => true,
     );
   }
@@ -61,7 +57,6 @@ class CommentService extends TraktServiceCore {
     var pathItems = ['comments', '$id', 'replies'];
     return _put_MS_MR<TraktComment>(
       path: pathItems.toPath(),
-      queryParameters: null,
       content: data.toJson(clean: clean),
       builder: (response) => TraktComment.fromJson(response),
     );
@@ -97,7 +92,6 @@ class CommentService extends TraktServiceCore {
     var pathItems = ['comments', '$id', 'like'];
     return _post_MS_MR<bool>(
       path: pathItems.toPath(),
-      queryParameters: null,
       content: null,
       builder: (response) => true,
     );
@@ -107,7 +101,6 @@ class CommentService extends TraktServiceCore {
     var pathItems = ['comments', '$id', 'like'];
     return _delete<bool, bool>(
       path: pathItems.toPath(),
-      queryParameters: null,
       builder: (response) => true,
     );
   }

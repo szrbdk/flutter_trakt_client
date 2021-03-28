@@ -7,9 +7,9 @@ import 'package:trakt_client/src/client/base.dart';
 import 'package:trakt_client/src/client/client.dart';
 import 'package:trakt_client/src/client/env.dart';
 
-import 'package:trakt_client/src/enum/extended_info.dart';
+import 'package:trakt_client/src/enum/extended_info_enum.dart';
 import 'package:trakt_client/src/enum/simple_type.dart';
-import 'package:trakt_client/src/enum/comment_type.dart';
+import 'package:trakt_client/src/enum/comment_enum.dart';
 import 'package:trakt_client/src/enum/type.dart';
 
 import 'package:trakt_client/src/model/trakt_certification.dart';
@@ -44,13 +44,15 @@ part 'package:trakt_client/src/service/language_service.dart';
 abstract class TraktServiceCore {
   Future<TraktBase<T>> _post_MS_MR<T>({
     @required String path,
-    @required Map<String, dynamic> queryParameters,
+    Map<String, dynamic> queryParameters,
+    Map<String, dynamic> extraHeaders,
     @required Map<String, dynamic> content,
     @required T Function(Map<String, dynamic> response) builder,
   }) {
     return Client().post<T, Map<String, dynamic>>(
       path: path,
       parameters: queryParameters,
+      extraHeaders: extraHeaders,
       content: content,
       builder: builder,
     );
@@ -58,49 +60,57 @@ abstract class TraktServiceCore {
 
   Future<TraktBase<T>> _get_MR<T>({
     @required String path,
-    @required Map<String, dynamic> queryParameters,
+    Map<String, dynamic> queryParameters,
+    Map<String, dynamic> extraHeaders,
     @required T Function(Map<String, dynamic> response) builder,
   }) {
     return Client().get<T, Map<String, dynamic>>(
       path: path,
       parameters: queryParameters,
+      extraHeaders: extraHeaders,
       builder: builder,
     );
   }
 
   Future<TraktBase<T>> _get_MLR<T>({
     @required String path,
-    @required Map<String, dynamic> queryParameters,
+    Map<String, dynamic> queryParameters,
+    Map<String, dynamic> extraHeaders,
     @required T Function(List<Map<String, dynamic>> response) builder,
   }) {
     return Client().get<T, List<Map<String, dynamic>>>(
       path: path,
       parameters: queryParameters,
+      extraHeaders: extraHeaders,
       builder: builder,
     );
   }
 
   Future<TraktBase<T>> _delete<T, K>({
     @required String path,
-    @required Map<String, dynamic> queryParameters,
+    Map<String, dynamic> queryParameters,
+    Map<String, dynamic> extraHeaders,
     @required T Function(K response) builder,
   }) {
     return Client().delete<T, K>(
       path: path,
       parameters: queryParameters,
+      extraHeaders: extraHeaders,
       builder: builder,
     );
   }
 
   Future<TraktBase<T>> _put_MS_MR<T>({
     @required String path,
-    @required Map<String, dynamic> queryParameters,
+    Map<String, dynamic> queryParameters,
+    Map<String, dynamic> extraHeaders,
     @required Map<String, dynamic> content,
     @required T Function(Map<String, dynamic> response) builder,
   }) {
     return Client().post<T, Map<String, dynamic>>(
       path: path,
       parameters: queryParameters,
+      extraHeaders: extraHeaders,
       content: content,
       builder: builder,
     );

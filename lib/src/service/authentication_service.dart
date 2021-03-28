@@ -18,7 +18,6 @@ class AuthenticationService extends TraktServiceCore {
     var _pathValues = ['oauth', 'token'];
     return _post_MS_MR<TraktToken>(
       path: _pathValues.toPath(),
-      queryParameters: null,
       content: data.toJson(clean: clean),
       builder: (response) => TraktToken.fromJson(response),
     );
@@ -29,7 +28,6 @@ class AuthenticationService extends TraktServiceCore {
     var _pathValues = ['oauth', 'token'];
     return _post_MS_MR<TraktToken>(
       path: _pathValues.toPath(),
-      queryParameters: null,
       content: data.toJson(clean: clean),
       builder: (response) => TraktToken.fromJson(response),
     );
@@ -40,7 +38,6 @@ class AuthenticationService extends TraktServiceCore {
     var _pathValues = ['oauth', 'revoke'];
     return _post_MS_MR<TraktToken>(
       path: _pathValues.toPath(),
-      queryParameters: null,
       content: data.toJson(clean: clean),
       builder: (response) => TraktToken.fromJson(response),
     );

@@ -5,7 +5,6 @@ class GenreService extends TraktServiceCore {
     var pathItems = ['countries', type.string];
     return _get_MR<TraktGenre>(
       path: pathItems.toPath(),
-      queryParameters: null,
       builder: (response) => TraktGenre.fromJson(response),
     );
   }

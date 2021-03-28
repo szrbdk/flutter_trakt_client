@@ -12,10 +12,11 @@ class Client {
 
   String _getUrl(String path) => '${Env().config.traktApiUrl}/$path';
 
-  BaseOptions get _dioOptions {
+  BaseOptions _dioOptions(Map<String, dynamic> extraHeaders) {
     var headers = {
       'trakt-api-key': Env().config.traktClient,
       'trakt-api-version': Env().config.traktApiVersion,
+      if (extraHeaders != null) ...extraHeaders,
     };
     return BaseOptions(
       contentType: 'application/json',
@@ -32,11 +33,12 @@ class Client {
   Future<TraktBase<T>> post<T, K>({
     @required String path,
     @required Map<String, dynamic> parameters,
+    @required Map<String, dynamic> extraHeaders,
     @required Map<String, dynamic> content,
     @required T Function(K data) builder,
   }) {
     var completer = Completer<TraktBase<T>>();
-    var dio = Dio(_dioOptions);
+    var dio = Dio(_dioOptions(extraHeaders));
     var url = _getUrl(path);
 
     dio.post(url, queryParameters: parameters, data: content).then((response) {
@@ -55,10 +57,11 @@ class Client {
   Future<TraktBase<T>> get<T, K>({
     @required String path,
     @required Map<String, dynamic> parameters,
+    @required Map<String, dynamic> extraHeaders,
     @required T Function(K data) builder,
   }) {
     var completer = Completer<TraktBase<T>>();
-    var dio = Dio(_dioOptions);
+    var dio = Dio(_dioOptions(extraHeaders));
     var url = _getUrl(path);
 
     dio.get(url, queryParameters: parameters).then((response) {
@@ -77,10 +80,11 @@ class Client {
   Future<TraktBase<T>> delete<T, K>({
     @required String path,
     @required Map<String, dynamic> parameters,
+    @required Map<String, dynamic> extraHeaders,
     @required T Function(K data) builder,
   }) {
     var completer = Completer<TraktBase<T>>();
-    var dio = Dio(_dioOptions);
+    var dio = Dio(_dioOptions(extraHeaders));
     var url = _getUrl(path);
 
     dio.delete(url, queryParameters: parameters).then((response) {
@@ -99,11 +103,12 @@ class Client {
   Future<TraktBase<T>> put<T, K>({
     @required String path,
     @required Map<String, dynamic> parameters,
+    @required Map<String, dynamic> extraHeaders,
     @required Map<String, dynamic> content,
     @required T Function(K data) builder,
   }) {
     var completer = Completer<TraktBase<T>>();
-    var dio = Dio(_dioOptions);
+    var dio = Dio(_dioOptions(extraHeaders));
     var url = _getUrl(path);
 
     dio.post(url, queryParameters: parameters, data: content).then((response) {

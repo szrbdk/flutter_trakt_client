@@ -5,7 +5,6 @@ class LanguageService extends TraktServiceCore {
     var pathItems = ['countries', type.string];
     return _get_MR<TraktLanguage>(
       path: pathItems.toPath(),
-      queryParameters: null,
       builder: (response) => TraktLanguage.fromJson(response),
     );
   }

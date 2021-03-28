@@ -5,7 +5,6 @@ class CountryService extends TraktServiceCore {
     var pathItems = ['countries', type.string];
     return _get_MR<TraktCountry>(
       path: pathItems.toPath(),
-      queryParameters: null,
       builder: (response) => TraktCountry.fromJson(response),
     );
   }
