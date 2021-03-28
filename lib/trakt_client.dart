@@ -2,7 +2,7 @@ library trakt_client;
 
 // CORE
 export 'package:trakt_client/src/trakt_service.dart';
-export 'package:trakt_client/src/trakt.dart';
+export 'package:trakt_client/src/trakt_client.dart';
 
 // MODELS
 export 'package:trakt_client/src/model/trakt_airs.dart';

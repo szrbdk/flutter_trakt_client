@@ -112,13 +112,12 @@ class CommentService extends TraktServiceCore {
     );
   }
 
-  Future<TraktBase<List<TraktMediaItem>>> getTrendingComments(
-      TraktCommentType commentType, TraktType type,
-      {int page,
+  Future<TraktBase<List<TraktMediaItem>>> _getXComments(
+      List<String> pathItems,
+      int page,
       int itemsPerPage,
       bool includeReplies,
-      List<TraktExtendedInfo> extendedInfo}) {
-    var pathItems = ['comments', 'trending', commentType.string, type.string];
+      List<TraktExtendedInfo> extendedInfo) {
     return _get_MLR<List<TraktMediaItem>>(
       path: pathItems.toPath(),
       queryParameters: {
@@ -130,6 +129,17 @@ class CommentService extends TraktServiceCore {
       builder: (response) => List<TraktMediaItem>.from(
           response.map((e) => TraktMediaItem.fromJson(e))),
     );
+  }
+
+  Future<TraktBase<List<TraktMediaItem>>> getTrendingComments(
+      TraktCommentType commentType, TraktType type,
+      {int page,
+      int itemsPerPage,
+      bool includeReplies,
+      List<TraktExtendedInfo> extendedInfo}) {
+    var path = ['comments', 'trending', commentType.string, type.string];
+    return _getXComments(
+        path, page, itemsPerPage, includeReplies, extendedInfo);
   }
 
   Future<TraktBase<List<TraktMediaItem>>> getRecentComments(
@@ -138,18 +148,9 @@ class CommentService extends TraktServiceCore {
       int itemsPerPage,
       bool includeReplies,
       List<TraktExtendedInfo> extendedInfo}) {
-    var pathItems = ['comments', 'recent', commentType.string, type.string];
-    return _get_MLR<List<TraktMediaItem>>(
-      path: pathItems.toPath(),
-      queryParameters: {
-        if (includeReplies != null) ...{'include_replies': includeReplies},
-        if (extendedInfo != null) ...{'extended': extendedInfo.joinWith(',')},
-        if (page != null) ...{'page': page},
-        if (itemsPerPage != null) ...{'limit': itemsPerPage}
-      },
-      builder: (response) => List<TraktMediaItem>.from(
-          response.map((e) => TraktMediaItem.fromJson(e))),
-    );
+    var path = ['comments', 'recent', commentType.string, type.string];
+    return _getXComments(
+        path, page, itemsPerPage, includeReplies, extendedInfo);
   }
 
   Future<TraktBase<List<TraktMediaItem>>> getUpdatedComments(
@@ -158,17 +159,8 @@ class CommentService extends TraktServiceCore {
       int itemsPerPage,
       bool includeReplies,
       List<TraktExtendedInfo> extendedInfo}) {
-    var pathItems = ['comments', 'updates', commentType.string, type.string];
-    return _get_MLR<List<TraktMediaItem>>(
-      path: pathItems.toPath(),
-      queryParameters: {
-        if (includeReplies != null) ...{'include_replies': includeReplies},
-        if (extendedInfo != null) ...{'extended': extendedInfo.joinWith(',')},
-        if (page != null) ...{'page': page},
-        if (itemsPerPage != null) ...{'limit': itemsPerPage}
-      },
-      builder: (response) => List<TraktMediaItem>.from(
-          response.map((e) => TraktMediaItem.fromJson(e))),
-    );
+    var path = ['comments', 'updates', commentType.string, type.string];
+    return _getXComments(
+        path, page, itemsPerPage, includeReplies, extendedInfo);
   }
 }
