@@ -56,7 +56,7 @@ class TraktTokenForm {
         'client_id': clientId,
         'client_secret': clientSecret,
         'redirect_uri': redirectUri,
-        'grant_type': EnumHelper().traktGrantTypeToString(grantType),
+        'grant_type': grantType?.string,
         'refresh_token': refreshToken,
         'token': token,
       });

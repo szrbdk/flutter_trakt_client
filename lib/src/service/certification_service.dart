@@ -3,9 +3,9 @@ part of 'package:trakt_client/src/client/service_core.dart';
 class CertificationService extends TraktServiceCore {
   Future<TraktBase<TraktCertification>> list(
       TraktCertificationType certificationType) {
-    var type = EnumHelper().traktCertificationTypeToString(certificationType);
+    var pathItems = ['certifications', certificationType.string];
     return _get_MR<TraktCertification>(
-      path: 'certifications/$type',
+      path: pathItems.toPath(),
       queryParameters: null,
       builder: (response) => TraktCertification.fromJson(response),
     );

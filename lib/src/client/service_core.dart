@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:trakt_client/src/enum/extended_info.dart';
+import 'package:trakt_client/src/extension/list_extension.dart';
 
 import 'package:trakt_client/src/client/base.dart';
 import 'package:trakt_client/src/client/client.dart';
@@ -7,7 +9,6 @@ import 'package:trakt_client/src/client/env.dart';
 import 'package:trakt_client/src/enum/certification_type.dart';
 import 'package:trakt_client/src/enum/comment_type.dart';
 import 'package:trakt_client/src/enum/type.dart';
-import 'package:trakt_client/src/helpers/enum_helper.dart';
 import 'package:trakt_client/src/model/trakt_certification.dart';
 import 'package:trakt_client/src/model/trakt_checkin.dart';
 import 'package:trakt_client/src/model/trakt_comment.dart';
