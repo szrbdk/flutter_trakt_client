@@ -6,4 +6,8 @@ class TraktService {
   static CertificationService get certification => CertificationService();
   static CheckinService get checkin => CheckinService();
   static CommentService get comment => CommentService();
+  static CountryService get country => CountryService();
+  static GenreService get genre => GenreService();
+  static LanguageService get language => LanguageService();
+
 }

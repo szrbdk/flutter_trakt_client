@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:trakt_client/src/enum/extended_info.dart';
+
 import 'package:trakt_client/src/extension/list_extension.dart';
 
 import 'package:trakt_client/src/client/base.dart';
 import 'package:trakt_client/src/client/client.dart';
 import 'package:trakt_client/src/client/env.dart';
-import 'package:trakt_client/src/enum/certification_type.dart';
+
+import 'package:trakt_client/src/enum/extended_info.dart';
+import 'package:trakt_client/src/enum/simple_type.dart';
 import 'package:trakt_client/src/enum/comment_type.dart';
 import 'package:trakt_client/src/enum/type.dart';
+
 import 'package:trakt_client/src/model/trakt_certification.dart';
 import 'package:trakt_client/src/model/trakt_checkin.dart';
 import 'package:trakt_client/src/model/trakt_comment.dart';
+import 'package:trakt_client/src/model/trakt_country.dart';
+import 'package:trakt_client/src/model/trakt_genre.dart';
+import 'package:trakt_client/src/model/trakt_language.dart';
 import 'package:trakt_client/src/model/trakt_like.dart';
 import 'package:trakt_client/src/model/trakt_media_item.dart';
-
 import 'package:trakt_client/src/model/trakt_token.dart';
 import 'package:trakt_client/src/model/trakt_token_form.dart';
 import 'package:trakt_client/src/model/trakt_calendar.dart';
@@ -24,6 +29,9 @@ part 'package:trakt_client/src/service/calendar_service.dart';
 part 'package:trakt_client/src/service/certification_service.dart';
 part 'package:trakt_client/src/service/checkin_service.dart';
 part 'package:trakt_client/src/service/comment_service.dart';
+part 'package:trakt_client/src/service/country_service.dart';
+part 'package:trakt_client/src/service/genre_service.dart';
+part 'package:trakt_client/src/service/language_service.dart';
 
 /// `MSMR` -> Map Sends, Map Returns
 ///
