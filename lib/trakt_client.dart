@@ -3,6 +3,7 @@ library trakt_client;
 // CORE
 export 'package:trakt_client/src/trakt_service.dart';
 export 'package:trakt_client/src/trakt_client.dart';
+export 'package:trakt_client/src/client/config.dart';
 
 // ENUMS
 export 'package:trakt_client/src/enum/comment_enum.dart';

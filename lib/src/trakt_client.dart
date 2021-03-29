@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:trakt_client/src/client/config.dart';
 import 'package:trakt_client/src/client/env.dart';
+import 'package:trakt_client/src/model/trakt_token.dart';
 
 class TraktClient {
   static void initialize({
@@ -20,5 +22,17 @@ class TraktClient {
       traktSecret: traktSecret,
       useProdConfig: alwaysUseTrakt,
     );
+  }
+
+  static void setToken(TraktToken token) {
+    Env().setToken(token);
+  }
+
+  static TraktToken getToken() {
+    return Env().token;
+  }
+
+  static TraktConfig getActiveConfig() {
+    return Env().config;
   }
 }
