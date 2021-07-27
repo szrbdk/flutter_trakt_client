@@ -4,8 +4,8 @@ class CalendarService extends TraktServiceCore {
   Future<TraktBase<List<TraktCalendar>>> _getCalendar(List<String> pathItems,
       DateTime startDate, int days, List<TraktExtendedInfo> extendedInfo) {
     var _pathValues = [
-      ...pathItems,
       'calendars',
+      ...pathItems,
       if (startDate != null) ...[DateFormat('yyyy-MM-dd').format(startDate)],
       if (days != null) ...['$days'],
     ];
