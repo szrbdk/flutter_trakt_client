@@ -16,10 +16,14 @@ class Client {
     var headers = {
       'trakt-api-key': Env().config.traktClient,
       'trakt-api-version': Env().config.traktApiVersion,
-      if (extraHeaders != null) ...extraHeaders,
+      'Content-type': 'application/json',
     };
+    if (extraHeaders != null && extraHeaders.isNotEmpty) {
+      extraHeaders.forEach((key, value) {
+        headers.putIfAbsent(key, () => value);
+      });
+    }
     return BaseOptions(
-      contentType: 'application/json',
       headers: headers,
     );
   }
