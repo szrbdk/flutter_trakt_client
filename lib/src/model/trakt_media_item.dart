@@ -2,6 +2,7 @@ import 'package:trakt_client/src/model/trakt_comment.dart';
 import 'package:trakt_client/src/model/trakt_episode.dart';
 import 'package:trakt_client/src/model/trakt_list.dart';
 import 'package:trakt_client/src/model/trakt_movie.dart';
+import 'package:trakt_client/src/model/trakt_person.dart';
 import 'package:trakt_client/src/model/trakt_season.dart';
 
 class TraktMediaItem {
@@ -13,6 +14,9 @@ class TraktMediaItem {
     this.season,
     this.episode,
     this.list,
+    this.rank,
+    this.listedAt,
+    this.person,
   });
 
   String type;
@@ -22,6 +26,9 @@ class TraktMediaItem {
   TraktSeason season;
   TraktEpisode episode;
   TraktList list;
+  int rank;
+  DateTime listedAt;
+  TraktPerson person;
 
   TraktMediaItem copyWith({
     String type,
@@ -31,6 +38,9 @@ class TraktMediaItem {
     TraktSeason season,
     TraktEpisode episode,
     TraktList list,
+    int rank,
+    DateTime listedAt,
+    TraktPerson person,
   }) =>
       TraktMediaItem(
         type: type ?? this.type,
@@ -40,6 +50,9 @@ class TraktMediaItem {
         season: season ?? this.season,
         episode: episode ?? this.episode,
         list: list ?? this.list,
+        rank: rank ?? this.rank,
+        listedAt: listedAt ?? this.listedAt,
+        person: person ?? this.person,
       );
 
   factory TraktMediaItem.fromJson(Map<String, dynamic> json) => TraktMediaItem(
@@ -55,6 +68,9 @@ class TraktMediaItem {
             ? null
             : TraktEpisode.fromJson(json['episode']),
         list: json['list'] == null ? null : TraktList.fromJson(json['list']),
+        rank: json['rank'],
+        listedAt: DateTime.parse(json['listed_at']),
+        person: TraktPerson.fromJson(json['person']),
       );
 
   Map<String, dynamic> toJson() => {
@@ -65,5 +81,8 @@ class TraktMediaItem {
         'season': season == null ? null : season.toJson(),
         'episode': episode == null ? null : episode.toJson(),
         'list': list == null ? null : list.toJson(),
+        'rank': rank,
+        'listed_at': listedAt.toIso8601String(),
+        'person': person.toJson(),
       };
 }

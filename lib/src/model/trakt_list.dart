@@ -1,4 +1,5 @@
 import 'package:trakt_client/src/model/trakt_ids.dart';
+import 'package:trakt_client/src/model/trakt_user.dart';
 
 class TraktList {
   TraktList({
@@ -12,6 +13,11 @@ class TraktList {
     this.commentCount,
     this.likes,
     this.ids,
+    this.sortBy,
+    this.sortHow,
+    this.createdAt,
+    this.user,
+    this.likedAt,
   });
 
   String name;
@@ -24,6 +30,11 @@ class TraktList {
   int commentCount;
   int likes;
   TraktIds ids;
+  String sortBy;
+  String sortHow;
+  DateTime createdAt;
+  TraktUser user;
+  DateTime likedAt;
 
   TraktList copyWith({
     String name,
@@ -36,6 +47,11 @@ class TraktList {
     int commentCount,
     int likes,
     TraktIds ids,
+    String sortBy,
+    String sortHow,
+    DateTime createdAt,
+    TraktUser user,
+    DateTime likedAt,
   }) =>
       TraktList(
         name: name ?? this.name,
@@ -48,6 +64,11 @@ class TraktList {
         commentCount: commentCount ?? this.commentCount,
         likes: likes ?? this.likes,
         ids: ids ?? this.ids,
+        sortBy: sortBy ?? this.sortBy,
+        sortHow: sortHow ?? this.sortHow,
+        createdAt: createdAt ?? this.createdAt,
+        user: user ?? this.user,
+        likedAt: likedAt ?? this.likedAt,
       );
 
   factory TraktList.fromJson(Map<String, dynamic> json) => TraktList(
@@ -61,6 +82,11 @@ class TraktList {
         commentCount: json['comment_count'],
         likes: json['likes'],
         ids: TraktIds.fromJson(json['ids']),
+        sortBy: json['sort_by'],
+        sortHow: json['sort_how'],
+        createdAt: DateTime.parse(json['created_at']),
+        user: TraktUser.fromJson(json['user']),
+        likedAt: DateTime.parse(json['liked_at']),
       );
 
   Map<String, dynamic> toJson() => {
@@ -74,5 +100,10 @@ class TraktList {
         'comment_count': commentCount,
         'likes': likes,
         'ids': ids.toJson(),
+        'sort_by': sortBy,
+        'sort_how': sortHow,
+        'created_at': createdAt.toIso8601String(),
+        'user': user.toJson(),
+        'liked_at': likedAt.toIso8601String(),
       };
 }

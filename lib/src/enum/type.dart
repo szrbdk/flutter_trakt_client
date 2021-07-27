@@ -5,6 +5,7 @@ enum TraktType {
   seasons,
   episodes,
   lists,
+  person,
 }
 
 extension TraktTypeExtension on TraktType {
