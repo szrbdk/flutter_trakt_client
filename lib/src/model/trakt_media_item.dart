@@ -1,9 +1,9 @@
-import 'package:trakt_client/src/model/trakt_comment.dart';
-import 'package:trakt_client/src/model/trakt_episode.dart';
-import 'package:trakt_client/src/model/trakt_list.dart';
-import 'package:trakt_client/src/model/trakt_movie.dart';
-import 'package:trakt_client/src/model/trakt_person.dart';
-import 'package:trakt_client/src/model/trakt_season.dart';
+import 'package:trakt_client_flutter/src/model/trakt_comment.dart';
+import 'package:trakt_client_flutter/src/model/trakt_episode.dart';
+import 'package:trakt_client_flutter/src/model/trakt_list.dart';
+import 'package:trakt_client_flutter/src/model/trakt_movie.dart';
+import 'package:trakt_client_flutter/src/model/trakt_person.dart';
+import 'package:trakt_client_flutter/src/model/trakt_season.dart';
 
 class TraktMediaItem {
   TraktMediaItem({

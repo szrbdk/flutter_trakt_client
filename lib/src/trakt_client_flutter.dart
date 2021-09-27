@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:trakt_client/src/client/config.dart';
-import 'package:trakt_client/src/client/env.dart';
-import 'package:trakt_client/src/model/trakt_token.dart';
+import 'package:trakt_client_flutter/src/client/config.dart';
+import 'package:trakt_client_flutter/src/client/env.dart';
+import 'package:trakt_client_flutter/src/model/trakt_token.dart';
 
 class TraktClient {
   static void initialize({

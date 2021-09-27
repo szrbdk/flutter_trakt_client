@@ -1,4 +1,4 @@
-import 'package:trakt_client/src/model/trakt_user.dart';
+import 'package:trakt_client_flutter/src/model/trakt_user.dart';
 
 class TraktLike {
   TraktLike({

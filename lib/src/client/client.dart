@@ -2,8 +2,8 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:trakt_client/src/client/base.dart';
-import 'package:trakt_client/src/client/env.dart';
+import 'package:trakt_client_flutter/src/client/base.dart';
+import 'package:trakt_client_flutter/src/client/env.dart';
 
 class Client {
   Client._();

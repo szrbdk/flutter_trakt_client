@@ -1,10 +1,10 @@
-import 'package:trakt_client/src/helpers/trakt_helper.dart';
-import 'package:trakt_client/src/model/trakt_list.dart';
-import 'package:trakt_client/src/model/trakt_movie.dart';
-import 'package:trakt_client/src/model/trakt_season.dart';
-import 'package:trakt_client/src/model/trakt_user.dart';
-import 'package:trakt_client/src/model/trakt_user_stats.dart';
-import 'package:trakt_client/trakt_client.dart';
+import 'package:trakt_client_flutter/src/helpers/trakt_helper.dart';
+import 'package:trakt_client_flutter/src/model/trakt_list.dart';
+import 'package:trakt_client_flutter/src/model/trakt_movie.dart';
+import 'package:trakt_client_flutter/src/model/trakt_season.dart';
+import 'package:trakt_client_flutter/src/model/trakt_user.dart';
+import 'package:trakt_client_flutter/src/model/trakt_user_stats.dart';
+import 'package:trakt_client_flutter/trakt_client_flutter.dart';
 
 class TraktComment {
   TraktComment({

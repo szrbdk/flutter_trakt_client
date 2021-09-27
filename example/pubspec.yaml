@@ -11,7 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  trakt_client:
+  trakt_client_flutter:
     path: ../
 
 

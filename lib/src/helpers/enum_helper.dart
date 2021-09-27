@@ -1,4 +1,4 @@
-import 'package:trakt_client/src/enum/grant_type.dart';
+import 'package:trakt_client_flutter/src/enum/grant_type.dart';
 
 class EnumHelper {
   TraktGrantType traktGrantTypeFromString(String value) {

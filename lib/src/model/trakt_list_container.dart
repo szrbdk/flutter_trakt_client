@@ -1,4 +1,4 @@
-import 'package:trakt_client/src/model/trakt_list.dart';
+import 'package:trakt_client_flutter/src/model/trakt_list.dart';
 
 class TraktListContainer {
   TraktListContainer({

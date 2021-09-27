@@ -1,4 +1,4 @@
-import 'package:trakt_client/src/model/trakt_ids.dart';
+import 'package:trakt_client_flutter/src/model/trakt_ids.dart';
 
 class TraktMovie {
   TraktMovie({
@@ -30,7 +30,7 @@ class TraktMovie {
   String overview;
   DateTime released;
   int runtime;
-  dynamic country; 
+  dynamic country;
   String trailer;
   dynamic homepage;
   String status;

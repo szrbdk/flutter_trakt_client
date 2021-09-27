@@ -1,37 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import 'package:trakt_client/src/extension/list_extension.dart';
+import 'package:trakt_client_flutter/src/extension/list_extension.dart';
 
-import 'package:trakt_client/src/client/base.dart';
-import 'package:trakt_client/src/client/client.dart';
-import 'package:trakt_client/src/client/env.dart';
+import 'package:trakt_client_flutter/src/client/base.dart';
+import 'package:trakt_client_flutter/src/client/client.dart';
+import 'package:trakt_client_flutter/src/client/env.dart';
 
-import 'package:trakt_client/src/enum/extended_info_enum.dart';
-import 'package:trakt_client/src/enum/simple_type.dart';
-import 'package:trakt_client/src/enum/comment_enum.dart';
-import 'package:trakt_client/src/enum/type.dart';
+import 'package:trakt_client_flutter/src/enum/extended_info_enum.dart';
+import 'package:trakt_client_flutter/src/enum/simple_type.dart';
+import 'package:trakt_client_flutter/src/enum/comment_enum.dart';
+import 'package:trakt_client_flutter/src/enum/type.dart';
 
-import 'package:trakt_client/src/model/trakt_certification.dart';
-import 'package:trakt_client/src/model/trakt_checkin.dart';
-import 'package:trakt_client/src/model/trakt_comment.dart';
-import 'package:trakt_client/src/model/trakt_country.dart';
-import 'package:trakt_client/src/model/trakt_genre.dart';
-import 'package:trakt_client/src/model/trakt_language.dart';
-import 'package:trakt_client/src/model/trakt_like.dart';
-import 'package:trakt_client/src/model/trakt_media_item.dart';
-import 'package:trakt_client/src/model/trakt_token.dart';
-import 'package:trakt_client/src/model/trakt_token_form.dart';
-import 'package:trakt_client/src/model/trakt_calendar.dart';
+import 'package:trakt_client_flutter/src/model/trakt_certification.dart';
+import 'package:trakt_client_flutter/src/model/trakt_checkin.dart';
+import 'package:trakt_client_flutter/src/model/trakt_comment.dart';
+import 'package:trakt_client_flutter/src/model/trakt_country.dart';
+import 'package:trakt_client_flutter/src/model/trakt_genre.dart';
+import 'package:trakt_client_flutter/src/model/trakt_language.dart';
+import 'package:trakt_client_flutter/src/model/trakt_like.dart';
+import 'package:trakt_client_flutter/src/model/trakt_media_item.dart';
+import 'package:trakt_client_flutter/src/model/trakt_token.dart';
+import 'package:trakt_client_flutter/src/model/trakt_token_form.dart';
+import 'package:trakt_client_flutter/src/model/trakt_calendar.dart';
 
-part 'package:trakt_client/src/service/authentication_service.dart';
-part 'package:trakt_client/src/service/calendar_service.dart';
-part 'package:trakt_client/src/service/certification_service.dart';
-part 'package:trakt_client/src/service/checkin_service.dart';
-part 'package:trakt_client/src/service/comment_service.dart';
-part 'package:trakt_client/src/service/country_service.dart';
-part 'package:trakt_client/src/service/genre_service.dart';
-part 'package:trakt_client/src/service/language_service.dart';
+part 'package:trakt_client_flutter/src/service/authentication_service.dart';
+part 'package:trakt_client_flutter/src/service/calendar_service.dart';
+part 'package:trakt_client_flutter/src/service/certification_service.dart';
+part 'package:trakt_client_flutter/src/service/checkin_service.dart';
+part 'package:trakt_client_flutter/src/service/comment_service.dart';
+part 'package:trakt_client_flutter/src/service/country_service.dart';
+part 'package:trakt_client_flutter/src/service/genre_service.dart';
+part 'package:trakt_client_flutter/src/service/language_service.dart';
 
 /// `MSMR` -> Map Sends, Map Returns
 ///

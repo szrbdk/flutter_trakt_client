@@ -1,6 +1,6 @@
-import 'package:trakt_client/src/model/trakt_episode.dart';
-import 'package:trakt_client/src/model/trakt_movie.dart';
-import 'package:trakt_client/src/model/trakt_show.dart';
+import 'package:trakt_client_flutter/src/model/trakt_episode.dart';
+import 'package:trakt_client_flutter/src/model/trakt_movie.dart';
+import 'package:trakt_client_flutter/src/model/trakt_show.dart';
 
 class TraktCalendar {
   TraktCalendar({

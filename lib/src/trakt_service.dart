@@ -1,4 +1,4 @@
-import 'package:trakt_client/src/client/service_core.dart';
+import 'package:trakt_client_flutter/src/client/service_core.dart';
 
 class TraktService {
   static AuthenticationService get oAuth => AuthenticationService();
@@ -9,5 +9,4 @@ class TraktService {
   static CountryService get country => CountryService();
   static GenreService get genre => GenreService();
   static LanguageService get language => LanguageService();
-
 }

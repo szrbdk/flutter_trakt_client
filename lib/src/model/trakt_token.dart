@@ -1,4 +1,4 @@
-import 'package:trakt_client/src/helpers/trakt_helper.dart';
+import 'package:trakt_client_flutter/src/helpers/trakt_helper.dart';
 
 class TraktToken {
   TraktToken({

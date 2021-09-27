@@ -1,5 +1,5 @@
-import 'package:trakt_client/src/model/trakt_airs.dart';
-import 'package:trakt_client/src/model/trakt_ids.dart';
+import 'package:trakt_client_flutter/src/model/trakt_airs.dart';
+import 'package:trakt_client_flutter/src/model/trakt_ids.dart';
 
 class TraktShow {
   TraktShow({

@@ -1,4 +1,4 @@
-import 'package:trakt_client/src/model/trakt_sub_certification.dart';
+import 'package:trakt_client_flutter/src/model/trakt_sub_certification.dart';
 
 class TraktCertification {
   TraktCertification({

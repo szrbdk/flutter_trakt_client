@@ -1,4 +1,4 @@
-part of 'package:trakt_client/src/client/service_core.dart';
+part of 'package:trakt_client_flutter/src/client/service_core.dart';
 
 class CommentService extends TraktServiceCore {
   Future<TraktBase<TraktComment>> postComment(TraktComment data,

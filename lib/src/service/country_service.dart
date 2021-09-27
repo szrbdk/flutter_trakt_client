@@ -1,4 +1,4 @@
-part of 'package:trakt_client/src/client/service_core.dart';
+part of 'package:trakt_client_flutter/src/client/service_core.dart';
 
 class CountryService extends TraktServiceCore {
   Future<TraktBase<TraktCountry>> list(TraktSimpleType type) {
